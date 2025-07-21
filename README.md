@@ -4,7 +4,7 @@
 **Sprache:** C++  
 **Tools:** FreeFem++, Automatische Differenzierung  
 **Zeitraum:** 2014–2015  
-**Studierende:** Yingchun SONG, Shuai CUI
+**Studierende:** Yingchun SONG
 
 ## 🎯 Projektziel
 
