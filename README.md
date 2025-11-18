@@ -1,6 +1,4 @@
-<script type="text/javascript" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script># 🧩 Minimalflächenberechnung (Plateau-Problem) – C++ Projekt
+🧩 Minimalflächenberechnung (Plateau-Problem) – C++ Projekt
 
 **Sprache:** C++  
 **Tools:** FreeFem++, Automatische Differenzierung  
@@ -23,6 +21,7 @@ Das zu minimierende Funktional lautet:
 $$
 J(z) = \sum_{K \in \Sigma_h} \text{Fläche}(K)
 $$
+<img src="https://latex.codecogs.com/svg.image?J(z)=\sum_{K\in\Sigma_h}\text{Fläche}(K)" />
 Hierbei ist:
 
 Σₕ : eine Triangulation des Gebiets
