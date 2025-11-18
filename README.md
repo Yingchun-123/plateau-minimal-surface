@@ -8,9 +8,22 @@
 
 ## 🎯 Projektziel
 
-Das Ziel dieses Projekts war die numerische Lösung des klassischen Plateau-Problems: 
-Gesucht ist eine Fläche minimaler Fläche, deren Rand eine vorgegebene geschlossene Kurve im ℝ³ ist.  
-Die Fläche wird dabei als Graph einer Funktion \( z = f(x, y) \) über einem 2D-Gebiet modelliert und diskretisiert.
+Ziel des Projekts ist die numerische Lösung des klassischen Plateau-Problems.
+Gesucht wird eine Fläche minimaler Energie bzw. minimaler Fläche, deren Rand eine vorgegebene geschlossene Kurve im ℝ³ bildet.
+
+Die gesuchte Fläche wird als Graph einer Funktion
+
+𝑧
+=
+𝑓
+(
+𝑥
+,
+𝑦
+)
+z=f(x,y)
+
+über einem zweidimensionalen Gebiet modelliert und anschließend diskretisiert und numerisch minimiert.
 
 ## 🧠 Mathematischer Hintergrund
 
