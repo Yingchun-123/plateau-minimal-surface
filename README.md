@@ -1,68 +1,60 @@
-🧩 Minimalflächenberechnung (Plateau-Problem) – C++ Projekt
+# Minimalflächenberechnung (Plateau-Problem) – C++ Projekt
 
 **Sprache:** C++  
-**Tools:** FreeFem++, Automatische Differenzierung  
+**Tools:** FreeFem++, automatische Differenzierung  
 **Zeitraum:** 2014–2015  
-**Studierende:** Yingchun SONG
+**Studierende:** Yingchun SONG  
+
+---
 
 ## 🎯 Projektziel
 
-Ziel des Projekts ist die numerische Lösung des klassischen Plateau-Problems.
-Gesucht wird eine Fläche minimaler Energie bzw. minimaler Fläche, deren Rand eine vorgegebene geschlossene Kurve im ℝ³ bildet.
+Ziel des Projekts ist die numerische Lösung des klassischen Plateau-Problems.  
+Dabei wird eine Fläche minimaler Fläche gesucht, deren Rand eine vorgegebene geschlossene Kurve im dreidimensionalen Raum bildet.
 
-Die gesuchte Fläche wird als Graph einer Funktion
-z=f(x,y)
+Die gesuchte Fläche wird als Graph einer Funktion z = f(x, y) über einem zweidimensionalen Gebiet modelliert, diskretisiert und anschließend numerisch minimiert.
 
-über einem zweidimensionalen Gebiet modelliert und anschließend diskretisiert und numerisch minimiert.
+---
 
 ## 🧠 Mathematischer Hintergrund
 
-Das zu minimierende Funktional lautet:
-$$
-J(z) = \sum_{K \in \Sigma_h} \text{Fläche}(K)
-$$
-<img src="https://latex.codecogs.com/svg.image?J(z)=\sum_{K\in\Sigma_h}\text{Fläche}(K)" />
-Hierbei ist:
+Das Minimierungsproblem basiert auf der Summe der Flächen aller Dreieckselemente einer Triangulation.  
+Dabei gilt:
 
-Σₕ : eine Triangulation des Gebiets
+- Die Oberfläche wird durch eine Triangulation des Gebiets approximiert.  
+- Jedes Dreieck liefert einen positiven Flächenbeitrag.  
+- Die Gesamtfläche ergibt sich aus der Summe aller Dreiecksflächen.
 
-K : ein Dreieckselement
+Die Fläche eines einzelnen Dreiecks wird über das Kreuzprodukt der Kantenvektoren berechnet (halbe Norm des Kreuzproduktes).  
+Dieses Prinzip dient als Grundlage für das gesamte Minimierungsverfahren.
 
-Die Fläche eines Dreiecks:
-|K| = \frac{1}{2} \|\vec{AB} \wedge \vec{AC}\|
-Dieses Funktional approximiert die Gesamtsumme der Flächenelemente — und damit die minimale Fläche der gesuchten Oberfläche.
+---
 
-## 🔧 Technische Umsetzung
+## ⚙️ Numerische Umsetzung
 
-- Definition und Implementierung der Funktionen:
-  - `aire()`: Fläche eines Dreiecks im ℝ³
-  - `daire()`: Erste Ableitungen der Fläche nach z-Werten
-  - `ddaire()`: Zweite Ableitungen (Hesse-Matrix)
-- Entwicklung einer `Mesh2`-Struktur zur Verwaltung von Knoten, Dreiecken und Randpunkten
-- Einlesen von `.msh`-Dateien, Extraktion von Eckpunkten, Flächen, Kanten
-- Implementierung von:
-  - `J()`, `dJ()`, `ddJ()` zur Berechnung von Funktional, Gradient und Hesse
-  - Gradientenabstieg
-  - Newton-Verfahren
-  - Konjugierter Gradientenalgorithmus für lineare Gleichungssysteme
+Die Implementierung umfasst folgende Schritte:
 
-## ⚙️ Verwendete Algorithmen
+### **1. Triangulation**
+- Zerlegung des Gebiets in Dreiecke (Finite-Elemente-Struktur).
+- Definition der Randkurve.
 
-- **Gradientenverfahren**:
-  - Iteratives Update \( z_{n+1} = z_n - \rho \nabla J(z_n) \)
-- **Newton-Verfahren**:
-  - Löst \( \nabla J(z) = 0 \) mit Hesse-Matrix
-  - Verwendung des konjugierten Gradientenverfahrens zur Lösung von \( H u = b \)
+### **2. Formulierung des Minimierungsproblems**
+- Berechnung der Dreiecksflächen auf Basis der aktuellen Funktion z(x, y).
+- Aufstellen des Gesamtflächenfunktionals.
 
-## ✅ Validierung & Beispiele
+### **3. Gradientenverfahren**
+- Iteratives Update des Oberflächenprofils:
+  - z_{n+1} = z_n – Schrittweite * Gradient des Flächenfunktionals  
+- Ziel ist die Verringerung der Gesamtfläche bei jedem Schritt.
 
-Die Algorithmen wurden mit analytisch bekannten Minimalflächen getestet:
+### **4. Newton-Verfahren**
+- Lösung des Gleichungssystems, das aus der Bedingung „Gradient gleich Null“ entsteht.
+- Verwendung der Hesse-Matrix (zweite Ableitungen) für schnellere Konvergenz.
+- Für die linearen Gleichungssysteme wird das konjugierte Gradientenverfahren eingesetzt.
 
-- **Caténoïde**: \( z = \pm \text{acosh}(\sqrt{x^2 + y^2}) \)
-- **Scherk-Fläche**: \( z = \ln \cos(x) - \ln \cos(y) \)
-- **Helikoide**: \( f(x,y) = \tan(a y / x) \)
-
-Vergleiche zwischen numerischer Lösung \( u_h \) und exakter Lösung \( f(x, y) \) wurden durchgeführt.
+### **5. Visualisierung**
+- Darstellung der triangulierten Minimalfläche.
+- Vergleich verschiedener Iterationsstufen zur Analyse der Konvergenz.
 
 ## 🧪 Ergebnisse (Beispiele)
 
