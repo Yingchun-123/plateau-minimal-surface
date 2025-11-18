@@ -19,8 +19,9 @@ z=f(x,y)
 ## 🧠 Mathematischer Hintergrund
 
 Das zu minimierende Funktional lautet:
-
+$$
 J(z) = \sum_{K \in \Sigma_h} \text{Fläche}(K)
+$$
 Hierbei ist:
 
 Σₕ : eine Triangulation des Gebiets
