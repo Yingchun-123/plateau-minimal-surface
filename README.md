@@ -71,7 +71,7 @@ Die Implementierung umfasst folgende Schritte:
 
 Bitte die Bilddateien im Ordner `/images` bereitstellen:
 
-- `catenoid_example.png`
+- `catenoid_example.jpeg`
 - `scherk_example.png`
 - `helicoid_example.png`
 - `result_comparison.png`
