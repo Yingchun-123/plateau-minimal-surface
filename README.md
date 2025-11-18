@@ -1,5 +1,6 @@
-
-# 🧩 Minimalflächenberechnung (Plateau-Problem) – C++ Projekt
+<script type="text/javascript" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script># 🧩 Minimalflächenberechnung (Plateau-Problem) – C++ Projekt
 
 **Sprache:** C++  
 **Tools:** FreeFem++, Automatische Differenzierung  
